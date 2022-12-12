@@ -39,9 +39,22 @@ public class School {
     public static void addTeacher(Teacher person){teacherlist.add(person);}
     public static void addClassRoom(ClassRoom classroom){classrooms.add(classroom);}
 
-    public static List<ClassRoom> getClassRooms() {return classrooms;}
-    public static List<Student> getStudentlist() {return studentlist;}
-    public static List<Teacher> getTeacherlist() {return teacherlist;}
+    public static List<ClassRoom> getClassRooms() {return getClassRooms(null);}
+    public static List<Student> getStudentlist() {return getStudentlist(null);}
+    public static List<Teacher> getTeacherlist() {return getTeacherlist(null);}
+
+    public static List<ClassRoom> getClassRooms(Comparator<ClassRoom> c) {
+        classrooms.sort(c);
+        return classrooms;
+    }
+    public static List<Student> getStudentlist(Comparator<Student> c) {
+        studentlist.sort(c);
+        return studentlist;
+    }
+    public static List<Teacher> getTeacherlist(Comparator<Teacher> c) {
+        teacherlist.sort(c);
+        return teacherlist;
+    }
 
     public static void viewStudentInformation(){
         System.out.println("****** Viewing Student list ******");

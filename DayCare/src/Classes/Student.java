@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * 
  */
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student>{
     
     private double gpa;
     private String ageGroup;
@@ -69,7 +69,10 @@ public class Student extends Person {
         }
         return "60-Above";
     }
-    
-    
-    
+
+
+    @Override
+    public int compareTo(Student o) {
+        return Integer.compare(this.getId(), o.getId());
+    }
 }

@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * 
  */
-public class Teacher extends Person {
+public class Teacher extends Person implements Comparable<Teacher>{
     
     private int credits;
     private int salary;
@@ -60,5 +60,9 @@ public class Teacher extends Person {
     public String toString() {
         return getName();
     }
-  
+
+    @Override
+    public int compareTo(Teacher o) {
+        return Integer.compare(this.getId(), o.getId());
+    }
 }

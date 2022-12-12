@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * 
  */
-public class ClassRoom {
+public class ClassRoom implements Comparable<ClassRoom>{
     // Can have maximum of 3 Teachers
     // Can have maximum of 30 students
     
@@ -51,6 +51,11 @@ public class ClassRoom {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    @Override
+    public int compareTo(ClassRoom o) {
+        return Integer.compare(this.getCapacity(), o.getCapacity());
     }
 
 //    public ClassRoom(String name, Teacher headTeacher) {
