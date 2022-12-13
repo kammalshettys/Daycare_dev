@@ -52,7 +52,7 @@ public class Demo {
         TeacherFactory.getInstance().addObject(teacherCsvFile);
         schoolInstance.viewTeacherInformation();
         
-        System.out.println("*** Creating groups with teachers and stundets **** ");
+        System.out.println("*** Creating groups with teachers and students **** ");
         
         List<Student> studentList = schoolInstance.getStudentlist();
         List<Teacher> teacherList = schoolInstance.getTeacherlist();

@@ -6,11 +6,8 @@
 package Classes;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+
 import utility.FileUtil;
 
 /**
@@ -79,7 +76,11 @@ public class TeacherFactory {
     public static List<String> getAgeGroup(){
         List<String> ageGroup = new ArrayList<String>();
        for(Map.Entry<String,Integer>entry: Demo.studentRatioRules.entrySet()){
-           ageGroup.add(entry.getKey());
+           long teacherCount = School.getTeacherlist().stream().filter(t -> entry.getKey().equals(t.getAgeGroupAssigned())).count();
+           if((entry.getKey().equals("48-59")||entry.getKey().equals("60-Above"))&&teacherCount<2)
+                ageGroup.add(entry.getKey());
+           else if(teacherCount<3)
+               ageGroup.add(entry.getKey());
        }
                return ageGroup;
     }

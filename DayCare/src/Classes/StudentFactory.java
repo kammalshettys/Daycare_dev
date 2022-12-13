@@ -53,10 +53,11 @@ public class StudentFactory {
  //   System.out.println()  
     Optional<Teacher> t = School.teacherlist.stream().filter(e->e.getName().equalsIgnoreCase(student.getTeacherAssigned())).findFirst();
       Teacher teacher = t.get();
+      teacher.setStudentCount(teacher.getStudentCount()+1);
       Optional<ClassRoom> cl = School.classrooms.stream().filter(e->e.teacherStudentGroup.containsKey(teacher)).findAny();
       ClassRoom classRoom = null;
-         if(!cl.isEmpty()){
-         classRoom = cl.get();   
+         if(cl.isPresent()){
+         classRoom = cl.get();
       }
          else
          {
@@ -93,7 +94,9 @@ public static void deletObj(int index) {
     }
 
 public static List<String> teachList(int age){
-    List<String> teacherList = School.teacherlist.stream().filter(e-> e.getAgeGroupAssigned().equalsIgnoreCase(Student.getAgeGroupMapping(age))).map(e->{return e.getName();}).collect(Collectors.toList());
+    List<String> teacherList = School.teacherlist.stream()
+            .filter(e-> (e.getAgeGroupAssigned().equalsIgnoreCase(Student.getAgeGroupMapping(age)))&&Demo.studentRatioRules.get(Student.getAgeGroupMapping(age))>e.getStudentCount())
+            .map(e->{return e.getName();}).collect(Collectors.toList());
     System.out.println(teacherList);
     return teacherList;
 }

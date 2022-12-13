@@ -195,7 +195,7 @@ public class LandingPage extends javax.swing.JFrame {
 
         for (Teacher tk : instance.teacherlist) {
 //            System.out.println(mdyFormat.format(tk.getDateOfBirth()));
-            teacherData.add("" + tk.getId() + "," + mdyFormat.format(tk.getDateOfBirth()) + "," + tk.getAge() + "," + tk.getName() + "," + tk.getCredits() + "," + tk.getSalary());
+            teacherData.add("" + tk.getId() + "," + mdyFormat.format(tk.getDateOfBirth()) + "," + tk.getAge() + "," + tk.getName() + "," + tk.getCredits() + "," + tk.getSalary() + "," + tk.getAgeGroupAssigned());
         }
         String[] teacherDataArr = new String[teacherData.size()];
         teacherData.toArray(teacherDataArr);
