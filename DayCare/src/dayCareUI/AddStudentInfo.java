@@ -333,7 +333,7 @@ public class AddStudentInfo extends javax.swing.JPanel {
             String mmrVacc2 = txtMMR2.getText();
             String varicella1 = Vvaccine1.getText();
             String varicella2 = Vvaccine2.getText();
-            
+            String teacherAssigned1 = teacherAssigned.getSelectedItem().toString();
             Date mmrVaccine1 = null;
             try {
                 mmrVaccine1 = new SimpleDateFormat("MM-dd-yyyy").parse(mmrVacc1);
@@ -364,8 +364,10 @@ public class AddStudentInfo extends javax.swing.JPanel {
             
             Student studentObj = StudentFactory.getObject(studentId, dob, 
                     studentAge, stundentName, stundentGpa, contactName, contactPhone,
-                    mmrVaccine1, mmrVaccine2, varicellaDate1, varicellaDate2
+                    mmrVaccine1, mmrVaccine2, varicellaDate1, varicellaDate2,teacherAssigned1
                     );
+            
+            
             JOptionPane.showMessageDialog(this, "Added Stundet Details Successfully");
             JTextField[] jk = new JTextField[] {txtName, txtContactName, txtGPA, txtMMR1, txtMMR2, txtGPA,
                         txtPhone, jTFID, jTFDOB, jTFAge, Vvaccine1, Vvaccine2};

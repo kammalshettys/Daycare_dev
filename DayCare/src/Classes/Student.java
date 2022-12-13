@@ -47,11 +47,12 @@ public class Student extends Person implements Comparable<Student>{
     
     public Student(int id, Date dob, int age, String name, double gpa,
             String contactName, String emergencyPhone,
-            Date mmrVacc1, Date mmrVacc2, Date varicella1, Date varicella2){
+            Date mmrVacc1, Date mmrVacc2, Date varicella1, Date varicella2, String teacher){
         super(id, dob, age, name, contactName, emergencyPhone,
                 mmrVacc1, mmrVacc2, varicella1, varicella2);
         this.gpa = gpa;
         this.setAgeGroup(this.getAgeGroupMapping());
+        this.teacherAssigned = teacher;
     }
     
     public ClassRoom getClassroom() {

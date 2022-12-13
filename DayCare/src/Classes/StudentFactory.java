@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import utility.FileUtil;
@@ -36,23 +38,47 @@ public class StudentFactory {
     public static Student getObject(int id, Date dob, int age, String name, 
             double gpa, String contactName,String emergencyPhone,
             Date mmrVacc1, Date mmrVacc2, 
-            Date varicella1, Date varicella2 ) {
+            Date varicella1, Date varicella2,String teacher ) {
         
         Student tmpstudent = new Student(id, dob, age, name, gpa,
                       contactName, emergencyPhone, mmrVacc1, mmrVacc2,
-                      varicella1,  varicella2);
+                      varicella1,  varicella2,teacher);
         School.addStudent(tmpstudent);
+        addClassRoom(tmpstudent);
         return tmpstudent;
+    }
+    public static void addClassRoom(Student student){
+     // List<Teacher> teachList =  School.teacherlist;
+    //  List<Teacher> teachList = School.teacherlist.stream().filter(e->e.getName().equalsIgnoreCase(student.getTeacherAssigned())).collect(Collectors.toList());
+ //   System.out.println()  
+    Optional<Teacher> t = School.teacherlist.stream().filter(e->e.getName().equalsIgnoreCase(student.getTeacherAssigned())).findFirst();
+      Teacher teacher = t.get();
+      Optional<ClassRoom> cl = School.classrooms.stream().filter(e->e.teacherStudentGroup.containsKey(teacher)).findAny();
+      ClassRoom classRoom = null;
+         if(!cl.isEmpty()){
+         classRoom = cl.get();   
+      }
+         else
+         {
+             classRoom = new ClassRoom();
+             classRoom.setCapacity(0);
+         }
+         
+         classRoom.setCapacity(classRoom.getCapacity()+1);
+         List<Student> std = classRoom.teacherStudentGroup.get(teacher);
+         std.add(student);
+         System.out.println(classRoom.teacherStudentGroup);
+
     }
     
     public static Student getObj(int id, Date dob, int age, String name, 
             double gpa, String contactName,String emergencyPhone,
             Date mmrVacc1, Date mmrVacc2, 
-            Date varicella1, Date varicella2,int index ) {
+            Date varicella1, Date varicella2,int index,String teacher ) {
         
         Student tmpstudent = new Student(id, dob, age, name, gpa,
                       contactName, emergencyPhone, mmrVacc1, mmrVacc2,
-                      varicella1,  varicella2);
+                      varicella1,  varicella2,teacher);
         School.studentlist.set(index, tmpstudent);
 //        School.addStudent(tmpstudent);
         return tmpstudent;
@@ -140,7 +166,7 @@ public static List<String> teachList(int age){
       
                 tmpStudent = StudentFactory.getObject(id, dob, age, name, gpa,
                       contactName, contactPhone, mmrVacc1, mmrVacc2, varicellaVacc1,
-                      varicellaVacc2);
+                      varicellaVacc2,null);
 //                System.out.println(tmpStudent.toString());
                 tmplist.add(tmpStudent);
             }catch(Exception e){

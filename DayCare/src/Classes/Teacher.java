@@ -17,6 +17,7 @@ public class Teacher extends Person implements Comparable<Teacher>{
     private int salary;
     private String annualReview;
     private String ageGroupAssigned;
+   // private int studentCount;
 //    private int maxAge;
 //    private int minAge;
 //
@@ -34,7 +35,14 @@ public class Teacher extends Person implements Comparable<Teacher>{
 //    public int getMinAge(){
 //        return this.minAge;
 //    }
-
+//    public int getStudentCount() {
+//        return studentCount;
+//    }
+//
+//    public void setStudentCount(int count) {
+//        this.studentCount = count;
+//    }
+    
     public String getAgeGroupAssigned() {
         return ageGroupAssigned;
     }

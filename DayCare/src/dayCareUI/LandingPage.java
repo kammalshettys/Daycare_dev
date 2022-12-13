@@ -49,6 +49,7 @@ public class LandingPage extends javax.swing.JFrame {
         btnTeacher = new javax.swing.JButton();
         btnSummary = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        classRoomBtn = new javax.swing.JButton();
         contentViewPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -84,6 +85,13 @@ public class LandingPage extends javax.swing.JFrame {
             }
         });
 
+        classRoomBtn.setText("Classroom");
+        classRoomBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                classRoomBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
@@ -92,23 +100,28 @@ public class LandingPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnTeacher, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnSummary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnTeacher, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSummary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addComponent(classRoomBtn)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(68, 68, 68)
                 .addComponent(btnStudent)
-                .addGap(50, 50, 50)
+                .addGap(41, 41, 41)
                 .addComponent(btnTeacher)
-                .addGap(54, 54, 54)
+                .addGap(41, 41, 41)
+                .addComponent(classRoomBtn)
+                .addGap(38, 38, 38)
                 .addComponent(btnSummary)
-                .addGap(53, 53, 53)
+                .addGap(38, 38, 38)
                 .addComponent(jButton1)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(menuPanel);
@@ -235,6 +248,10 @@ public class LandingPage extends javax.swing.JFrame {
             ((JFrame) frame).dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void classRoomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classRoomBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_classRoomBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +261,7 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JButton btnStudent;
     private javax.swing.JButton btnSummary;
     private javax.swing.JButton btnTeacher;
+    private javax.swing.JButton classRoomBtn;
     private javax.swing.JPanel contentViewPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

@@ -398,7 +398,7 @@ public class ViewStudent1 extends javax.swing.JPanel {
             */
             Student studentObj = StudentFactory.getObj(studentId, dob, 
                     studentAge, stundentName, stundentGpa, contactName, contactPhone,
-                    null, null, null, null,tblStudent.getSelectedRow()
+                    null, null, null, null,tblStudent.getSelectedRow(), School.studentlist.get(tblStudent.getSelectedRow()).getTeacherAssigned()
                     );
             JOptionPane.showMessageDialog(this, "Added Stundet Details Successfully");
             JTextField[] jk = new JTextField[] {txtName, txtContactName, txtGPA, txtGPA,

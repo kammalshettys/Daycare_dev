@@ -278,7 +278,7 @@ public class addTeacher extends javax.swing.JPanel {
            String contactName = txtContactName.getText();           
            String phoneNumber = txtPhoneNumber.getText();
            String ageGroupVal = ageGroup.getSelectedItem().toString();
-          
+           
            TeacherFactory.getObject(id, dob, age, name, credits, salary,ageGroupVal);
             JOptionPane.showMessageDialog(this, "Info saved successfully");
            JTextField[] jk = new JTextField[] {txtName, txtAge, txtCredits, txtDataOfBirth,

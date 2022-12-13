@@ -19,14 +19,20 @@ public class ClassRoom implements Comparable<ClassRoom>{
     // Can have maximum of 30 students
     
     private int capacity;
-//    private List<Teacher> teacherList = new ArrayList<>();
+//    private List<Teacher> teacherList = new ArrayListeacherStudentGroupt<>();
     public Map<Teacher, List<Student>> teacherStudentGroup;
+  //  public Map<String, List<Student>> studentTeacherGroup;
+
     private String name;
 //    private List<Student> studentList = new ArrayList<>();
-
+    public ClassRoom(){
+      
+       
+    }
     public ClassRoom(String name){
         this.name = name;
-        teacherStudentGroup = new HashMap<Teacher, List<Student>>(); 
+        teacherStudentGroup = new HashMap<Teacher, List<Student>>();
+       
     }
     
     public int getCapacity() {
