@@ -80,7 +80,7 @@ public class StudentMenu extends javax.swing.JPanel {
                 .addComponent(btnViewStudent)
                 .addGap(70, 70, 70)
                 .addComponent(btnVaccineInfo)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         studentSplitPane.setLeftComponent(jPanel1);
@@ -95,7 +95,7 @@ public class StudentMenu extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 487, Short.MAX_VALUE)
         );
 
         studentSplitPane.setRightComponent(jPanel2);
@@ -120,7 +120,7 @@ public class StudentMenu extends javax.swing.JPanel {
 
     private void btnViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewStudentActionPerformed
         // TODO add your handling code here:
-        ViewStudent viewStudentObj = new ViewStudent();
+        ViewStudent1 viewStudentObj = new ViewStudent1();
         studentSplitPane.setRightComponent(viewStudentObj);
     }//GEN-LAST:event_btnViewStudentActionPerformed
 

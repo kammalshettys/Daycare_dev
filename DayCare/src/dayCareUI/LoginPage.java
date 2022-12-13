@@ -5,6 +5,7 @@ package dayCareUI;
  */
 
 
+import Classes.Demo;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Set;
@@ -171,6 +172,8 @@ public class LoginPage extends javax.swing.JFrame {
                 new LoginPage().setVisible(true);
             }
         });
+        Demo demoObj = new Demo();
+        demoObj.run();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

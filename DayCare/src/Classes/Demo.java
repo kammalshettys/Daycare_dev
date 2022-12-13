@@ -38,8 +38,11 @@ public class Demo {
     
     public void run(){
         School schoolInstance = School.getInstance();
+       // "/Users/saisumanthkammalshetty/Documents/CSYE6200-OOD/final_project/git_repo/committ_2/Daycare_dev/DayCare/src/Resources/Students.csv"
+      //  Path relativePathToDumpFile = Paths.get("src/Resources/Students.csv");        
         Path relativePathToDumpFile = Paths.get("", "src", "Resources", "Students.csv");
         String studentCsvFile = relativePathToDumpFile.toAbsolutePath().toString();
+        System.out.print(studentCsvFile);
         StudentFactory.getInstance().addObject(studentCsvFile);
         schoolInstance.viewStudentInformation();
                 

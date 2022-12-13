@@ -43,6 +43,28 @@ public class StudentFactory {
         School.addStudent(tmpstudent);
         return tmpstudent;
     }
+    
+    public static Student getObj(int id, Date dob, int age, String name, 
+            double gpa, String contactName,String emergencyPhone,
+            Date mmrVacc1, Date mmrVacc2, 
+            Date varicella1, Date varicella2,int index ) {
+        
+        Student tmpstudent = new Student(id, dob, age, name, gpa,
+                      contactName, emergencyPhone, mmrVacc1, mmrVacc2,
+                      varicella1,  varicella2);
+        School.studentlist.set(index, tmpstudent);
+//        School.addStudent(tmpstudent);
+        return tmpstudent;
+    }
+    
+    
+public static void deletObj(int index) {
+        
+        School.studentlist.remove(index);
+//        School.addStudent(tmpstudent);
+       
+    }
+    
 
     public static List<Person> addObject(String csvFile) {
 //        String[] fileOutput = csvFile.split("\\r?\\n");
