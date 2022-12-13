@@ -17,6 +17,23 @@ public class Teacher extends Person implements Comparable<Teacher>{
     private int salary;
     private String annualReview;
     private String ageGroupAssigned;
+//    private int maxAge;
+//    private int minAge;
+//
+//    public void setMaxAge(int maxAge){
+//        this.maxAge = maxAge;
+//    }
+//    public void setMinAge(int minAge){
+//        this.minAge = minAge;
+//    }
+//    
+//    public int getMaxAge(){
+//        return this.maxAge;
+//    }
+//    
+//    public int getMinAge(){
+//        return this.minAge;
+//    }
 
     public String getAgeGroupAssigned() {
         return ageGroupAssigned;
@@ -50,10 +67,11 @@ public class Teacher extends Person implements Comparable<Teacher>{
         this.salary = salary;
     }
     
-    public Teacher(int id, Date dob, int age, String name, int credits, int salary){
+    public Teacher(int id, Date dob, int age, String name, int credits, int salary, String ageGroup){
         super(id, dob, age, name);
         this.credits = credits;
         this.salary = salary;
+        this.ageGroupAssigned = ageGroup;
     }
     
     @Override

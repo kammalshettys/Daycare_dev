@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import utility.FileUtil;
 
@@ -57,14 +58,15 @@ public class TeacherFactory {
             String name = values[3];
             int credits = Integer.parseInt(values[4]);
             int salary = Integer.parseInt(values[5]);
-            tmpTeacher = TeacherFactory.getObject(id, dob, age, name, credits, salary);
+            String ageGroup = values[6];
+            tmpTeacher = TeacherFactory.getObject(id, dob, age, name, credits, salary,ageGroup);
             tmplist.add(tmpTeacher);
         }
         return tmplist;
     }
     
-    public static Teacher getObject(int id, Date dob, int age, String name, int credits, int salary){
-        Teacher tmpteacher = new Teacher(id, dob, age, name, credits, salary);
+    public static Teacher getObject(int id, Date dob, int age, String name, int credits, int salary, String ageGroup){
+        Teacher tmpteacher = new Teacher(id, dob, age, name, credits, salary,ageGroup);
         School.addTeacher(tmpteacher);
         return tmpteacher;
     }
@@ -72,5 +74,13 @@ public class TeacherFactory {
     public static void addTeacherObject(String fileName, String teacherData) {
         FileUtil fu =  new FileUtil();
         fu.fileTeacherWriter(teacherData, fileName);
+    }
+    
+    public static List<String> getAgeGroup(){
+        List<String> ageGroup = new ArrayList<String>();
+       for(Map.Entry<String,Integer>entry: Demo.studentRatioRules.entrySet()){
+           ageGroup.add(entry.getKey());
+       }
+               return ageGroup;
     }
 }

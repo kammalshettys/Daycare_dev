@@ -15,6 +15,15 @@ public class Student extends Person implements Comparable<Student>{
     
     private double gpa;
     private String ageGroup;
+    private String teacherAssigned;
+    
+    public String getTeacherAssigned() {
+        return teacherAssigned;
+    }
+
+    public void setTeacherAssigned(String teacherAssigned) {
+        this.teacherAssigned = teacherAssigned;
+    }
 
     public double getGpa() {
         return gpa;
@@ -65,6 +74,22 @@ public class Student extends Person implements Comparable<Student>{
         } else if (this.getAge() >= 36 && this.getAge() <= 47) {
             return "36-47";
         } else if (this.getAge() >= 48 && this.getAge() <= 59) {
+            return "48-59";
+        }
+        return "60-Above";
+    }
+    
+    public static String getAgeGroupMapping(int age){
+        
+        if (age >= 6 && age <= 12) {
+            return "6-12";
+        } else if (age >= 13 && age <= 24) {
+            return "13-24";
+        } else if (age >= 25 && age <= 35) {
+            return "25-35";
+        } else if (age >= 36 && age <= 47) {
+            return "36-47";
+        } else if (age >= 48 && age <= 59) {
             return "48-59";
         }
         return "60-Above";

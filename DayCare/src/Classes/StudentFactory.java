@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import utility.FileUtil;
 
 public class StudentFactory {
@@ -64,6 +65,12 @@ public static void deletObj(int index) {
 //        School.addStudent(tmpstudent);
        
     }
+
+public static List<String> teachList(int age){
+    List<String> teacherList = School.teacherlist.stream().filter(e-> e.getAgeGroupAssigned().equalsIgnoreCase(Student.getAgeGroupMapping(age))).map(e->{return e.getName();}).collect(Collectors.toList());
+    System.out.println(teacherList);
+    return teacherList;
+}
     
 
     public static List<Person> addObject(String csvFile) {
