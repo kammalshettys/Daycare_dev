@@ -5,6 +5,7 @@
  */
 package dayCareUI;
 
+import controllers.StudentController;
 import models.School;
 import models.Student;
 import models.StudentFactory;
@@ -395,7 +396,8 @@ public class ViewStudent1 extends javax.swing.JPanel {
                 System.err.println("Exception ocurred : " + e);
             }
             */
-            Student studentObj = StudentFactory.getObj(studentId, dob, 
+            Student studentObj = StudentController.getInstance().getObj(studentId,
+                    dob,
                     studentAge, stundentName, stundentGpa, contactName, contactPhone,
                     null, null, null, null,tblStudent.getSelectedRow(), School.students.get(tblStudent.getSelectedRow()).getTeacherAssigned()
                     );

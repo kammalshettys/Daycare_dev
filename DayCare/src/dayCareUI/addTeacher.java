@@ -5,6 +5,7 @@
  */
 package dayCareUI;
 
+import controllers.TeacherController;
 import models.School;
 import models.TeacherFactory;
 import java.awt.Dimension;
@@ -33,7 +34,7 @@ public class addTeacher extends javax.swing.JPanel {
         initComponents();
         instance = School.getInstance();
         Vector<String> ageGroupVector = new Vector<>(); 
-        List<String> ageGroupList = TeacherFactory.getAgeGroup();
+        List<String> ageGroupList = TeacherController.getInstance().getAgeGroup();
         for (String tk : ageGroupList ){
             ageGroupVector.add(tk);
         }

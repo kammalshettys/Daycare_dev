@@ -27,41 +27,7 @@ public class TeacherFactory {
         }
         return instance;
     }
-    
-    public static List<Person> addObject(String csvFile) {
 
-        FileUtil fu = new FileUtil();
-        List<String> fileOutput = fu.filereader(csvFile);
-        Person tmpTeacher = null;
-        
-        List<Person> tmplist = new ArrayList<>();
-        for (String inputLine : fileOutput) {
-            String[] values = inputLine.split(",");
-            int id;
-            try{
-                    id =Integer.parseInt(values[0]);
-                }catch(java.lang.NumberFormatException e){
-                    id =Integer.parseInt(values[0].substring(1));
-            }
-            String dateOfBirthStr = values[1];
-            Date dob = null;
-            try{
-                dob = new SimpleDateFormat("MM-dd-yyyy").parse(dateOfBirthStr);
-            }catch(Exception e){
-                System.err.println("Exception ocurred : " + e);
-            }
-            
-            int age = Integer.parseInt(values[2]);
-            String name = values[3];
-            int credits = Integer.parseInt(values[4]);
-            int salary = Integer.parseInt(values[5]);
-            String ageGroup = values[6];
-            tmpTeacher = TeacherFactory.getObject(id, dob, age, name, credits, salary,ageGroup);
-            tmplist.add(tmpTeacher);
-        }
-        return tmplist;
-    }
-    
     public static Teacher getObject(int id, Date dob, int age, String name, int credits, int salary, String ageGroup){
         Teacher tmpteacher = new Teacher(id, dob, age, name, credits, salary,ageGroup);
         School.addTeacher(tmpteacher);
@@ -71,17 +37,5 @@ public class TeacherFactory {
     public static void addTeacherObject(String fileName, String teacherData) {
         FileUtil fu =  new FileUtil();
         fu.fileTeacherWriter(teacherData, fileName);
-    }
-    
-    public static List<String> getAgeGroup(){
-        List<String> ageGroup = new ArrayList<String>();
-       for(Map.Entry<String,Integer>entry: Demo.studentRatioRules.entrySet()){
-           long teacherCount = School.getTeachers().stream().filter(t -> entry.getKey().equals(t.getAgeGroupAssigned())).count();
-           if((entry.getKey().equals("48-59")||entry.getKey().equals("60-Above"))&&teacherCount<2)
-                ageGroup.add(entry.getKey());
-           else if(teacherCount<3)
-               ageGroup.add(entry.getKey());
-       }
-               return ageGroup;
     }
 }

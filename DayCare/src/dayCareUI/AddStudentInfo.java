@@ -5,6 +5,7 @@
  */
 package dayCareUI;
 
+import controllers.StudentController;
 import models.Student;
 import models.StudentFactory;
 
@@ -362,7 +363,7 @@ public class AddStudentInfo extends javax.swing.JPanel {
                 System.err.println("Exception ocurred : " + e);
             }
             
-            Student studentObj = StudentFactory.getObject(studentId, dob, 
+            Student studentObj = StudentController.getInstance().getObject(studentId, dob,
                     studentAge, stundentName, stundentGpa, contactName, contactPhone,
                     mmrVaccine1, mmrVaccine2, varicellaDate1, varicellaDate2,teacherAssigned1
                     );
@@ -391,7 +392,9 @@ public class AddStudentInfo extends javax.swing.JPanel {
 
     private void jTFAgeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFAgeFocusLost
         System.out.println("lost "+jTFAge.getText());   
-        List<String> teacherList  = StudentFactory.teachList(Integer.parseInt(jTFAge.getText()));// TODO add your handling code here:
+        List<String> teacherList  =
+                StudentController.getInstance().teachList(Integer.parseInt(jTFAge.getText()));// TODO add
+        // your handling code here:
         Vector<String> teacherVector = new Vector<>(); 
         for (String tk : teacherList ){
             teacherVector.add(tk);

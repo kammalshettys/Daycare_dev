@@ -56,11 +56,7 @@ public class LandingPage extends javax.swing.JFrame {
         menuPanel.setBackground(new java.awt.Color(56, 118, 208));
 
         btnStudent.setText("Student");
-        btnStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStudentActionPerformed(evt);
-            }
-        });
+        btnStudent.addActionListener(this::btnStudentActionPerformed);
 
         btnTeacher.setText("Teacher");
         btnTeacher.addActionListener(new java.awt.event.ActionListener() {

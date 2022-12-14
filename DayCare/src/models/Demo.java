@@ -5,6 +5,9 @@
  */
 package models;
 
+import controllers.StudentController;
+import controllers.TeacherController;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -37,18 +40,20 @@ public class Demo {
     
     public void run(){
         School schoolInstance = School.getInstance();
-       // "/Users/saisumanthkammalshetty/Documents/CSYE6200-OOD/final_project/git_repo/committ_2/Daycare_dev/DayCare/src/Resources/Students.csv"
+        StudentController studentController = StudentController.getInstance();
+        TeacherController teacherController = TeacherController.getInstance();
+        // "/Users/saisumanthkammalshetty/Documents/CSYE6200-OOD/final_project/git_repo/committ_2/Daycare_dev/DayCare/src/Resources/Students.csv"
       //  Path relativePathToDumpFile = Paths.get("src/Resources/Students.csv");        
         Path relativePathToDumpFile = Paths.get("", "src", "Resources", "Students.csv");
         String studentCsvFile = relativePathToDumpFile.toAbsolutePath().toString();
         System.out.print(studentCsvFile);
-        StudentFactory.getInstance().addObject(studentCsvFile);
+        studentController.addObject(studentCsvFile);
         schoolInstance.viewStudentInformation();
                 
 
         Path teacherPathToDumpFile = Paths.get("", "src", "Resources", "Teachers.csv");
         String teacherCsvFile = teacherPathToDumpFile.toAbsolutePath().toString();
-        TeacherFactory.getInstance().addObject(teacherCsvFile);
+        TeacherController.getInstance().addObject(teacherCsvFile);
         schoolInstance.viewTeacherInformation();
         
         System.out.println("*** Creating groups with teachers and students **** ");
