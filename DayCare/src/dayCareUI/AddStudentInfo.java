@@ -371,8 +371,9 @@ public class AddStudentInfo extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Added Stundet Details Successfully");
             JTextField[] jk = new JTextField[] {txtName, txtContactName, txtGPA, txtMMR1, txtMMR2, txtGPA,
                         txtPhone, jTFID, jTFDOB, jTFAge, Vvaccine1, Vvaccine2};
+            
             ClearUtility.clearTextField(jk);
-
+            clearTeacherAssign();
         }else {
             String errorMessage = String.format("Teacher info NOT SAVED!!! \n"
                     + "Student-ID valid: %s \n Student Name Valid : %s \n"
@@ -398,6 +399,12 @@ public class AddStudentInfo extends javax.swing.JPanel {
         teacherAssigned.setModel(new DefaultComboBoxModel(teacherVector));
     }//GEN-LAST:event_jTFAgeFocusLost
 
+    public void clearTeacherAssign(){
+        Vector<String> teacherVector = new Vector<>(); 
+        teacherVector.add("enter Age First");
+        teacherAssigned.setModel(new DefaultComboBoxModel(teacherVector));
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Vvaccine1;
