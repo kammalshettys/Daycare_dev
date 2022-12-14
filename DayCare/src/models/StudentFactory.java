@@ -65,7 +65,7 @@ public class StudentFactory {
          classRoom.setCapacity(classRoom.getCapacity()+1);
          List<Student> std = classRoom.teacherStudentGroup.get(teacher);
          std.add(student);
-         System.out.println(classRoom.teacherStudentGroup);
+    //     System.out.println(classRoom.teacherStudentGroup);
 
     }
     
