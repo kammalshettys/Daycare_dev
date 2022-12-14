@@ -35,7 +35,7 @@ public class LoginPage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         txtFieldUsername = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtFieldPassword = new javax.swing.JTextField();
+        txtFieldPassword = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,14 +45,14 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel1.setText("Username:");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("SignIn");
+        jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Password:");
 
         txtFieldPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -61,9 +61,9 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 2, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 20)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Login");
+        jLabel3.setText("Login Page");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,7 +117,7 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (txtFieldUsername.getText().equalsIgnoreCase("admin")
-                && txtFieldPassword.getText().equalsIgnoreCase("admin") )
+                && txtFieldPassword.getText().equalsIgnoreCase("test@123") )
         {
 
             LandingPage page = new LandingPage();

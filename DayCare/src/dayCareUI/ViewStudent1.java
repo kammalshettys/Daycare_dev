@@ -318,7 +318,12 @@ public class ViewStudent1 extends javax.swing.JPanel {
        if(std!=null){
            txtName.setText(std.getName());
            jTFID.setText(String.valueOf(std.getID()));
-           
+           jTFAge.setText(String.valueOf(std.getAge()));
+           jTFDOB.setText(String.valueOf(std.getDOB()));
+           txtContactName.setText(String.valueOf(std.getEmergencyName()));
+           txtGPA.setText(String.valueOf(std.getGPA()));
+           txtPhone.setText(String.valueOf(std.getEmergencyPhone()));
+
        }
 // TODO add your handling code here:
     }//GEN-LAST:event_updateStudentActionPerformed
