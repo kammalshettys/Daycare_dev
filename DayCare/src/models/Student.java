@@ -14,7 +14,7 @@ import java.util.Date;
 public class Student extends Person implements Comparable<Student>{
 
     private double GPA;
-    private AgeGroup ageGroup;
+    private String ageGroup;
     private String teacherAssigned;
     
     public String getTeacherAssigned() {
@@ -29,11 +29,11 @@ public class Student extends Person implements Comparable<Student>{
         this.GPA = GPA;
     }
     
-    public AgeGroup getAgeGroup(){
+    public String getAgeGroup(){
         return this.ageGroup;
     }
     
-    public void setAgeGroup(AgeGroup ageGroup){
+    public void setAgeGroup(String ageGroup){
         this.ageGroup = ageGroup;
     }
     
@@ -58,36 +58,36 @@ public class Student extends Person implements Comparable<Student>{
         return getName();
     }
     
-    public AgeGroup getAgeGroupMapping(){
+    public String getAgeGroupMapping(){
         
         if (this.getAge() >= 6 && this.getAge() <= 12) {
-            return AgeGroup._6To12;
+            return "6-12";
         } else if (this.getAge() >= 13 && this.getAge() <= 24) {
-            return AgeGroup._13To24;
+            return "13-24";
         } else if (this.getAge() >= 25 && this.getAge() <= 35) {
-            return AgeGroup._25To35;
+            return "25-35";
         } else if (this.getAge() >= 36 && this.getAge() <= 47) {
-            return AgeGroup._36To47;
+            return "36-47";
         } else if (this.getAge() >= 48 && this.getAge() <= 59) {
-            return AgeGroup._48To59;
+            return "48-59";
         }
-        return AgeGroup._60Above;
+        return "60-Above";
     }
     
-    public static AgeGroup getAgeGroupMapping(int age){
+    public static String getAgeGroupMapping(int age){
 
         if (age >= 6 && age <= 12) {
-            return AgeGroup._6To12;
+            return "6-12";
         } else if (age >= 13 && age <= 24) {
-            return AgeGroup._13To24;
+            return "13-24";
         } else if (age >= 25 && age <= 35) {
-            return AgeGroup._25To35;
+            return "25-35";
         } else if (age >= 36 && age <= 47) {
-            return AgeGroup._36To47;
+            return "36-47";
         } else if (age >= 48 && age <= 59) {
-            return AgeGroup._48To59;
+            return "48-59";
         }
-        return AgeGroup._60Above;
+        return "60-Above";
     }
 
 

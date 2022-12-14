@@ -13,10 +13,10 @@ import java.util.Date;
  */
 public class Teacher extends Person implements Comparable<Teacher>{
     
-    private final int credits;
-    private final int salary;
+    private int credits;
+    private int salary;
     private String annualReview;
-    private AgeGroup ageGroupAssigned;
+    private String ageGroupAssigned;
     private int studentCount=0;
 
     public int getStudentCount() {
@@ -25,10 +25,10 @@ public class Teacher extends Person implements Comparable<Teacher>{
     public void setStudentCount(int count) {
         this.studentCount = count;
     }
-    public AgeGroup getAgeGroupAssigned() {
+    public String getAgeGroupAssigned() {
         return ageGroupAssigned;
     }
-    public void setAgeGroupAssigned(AgeGroup ageGroupAssigned) {
+    public void setAgeGroupAssigned(String ageGroupAssigned) {
         this.ageGroupAssigned = ageGroupAssigned;
     }
     public String getAnnualReview() {
@@ -45,7 +45,7 @@ public class Teacher extends Person implements Comparable<Teacher>{
     }
 
     public Teacher(int id, Date dob, int age, String name, int credits,
-                   int salary, AgeGroup ageGroup){
+                   int salary, String ageGroup){
         super(id, dob, age, name);
         this.credits = credits;
         this.salary = salary;

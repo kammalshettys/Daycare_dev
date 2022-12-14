@@ -34,6 +34,10 @@ public class ClassRoom implements Comparable<ClassRoom>{
 
     public Map<Teacher, List<Student>> teacherStudentGroup;
 
+    public ClassRoom(){
+
+    }
+
     public ClassRoom(String name){
         this.name = name;
         teacherStudentGroup = new HashMap<>();
