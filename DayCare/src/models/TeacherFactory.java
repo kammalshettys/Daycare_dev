@@ -5,10 +5,9 @@
  */
 package models;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
-
 import utility.FileUtil;
+
+import java.util.Date;
 
 /**
  *

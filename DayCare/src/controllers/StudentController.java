@@ -14,8 +14,11 @@ public class StudentController {
 
     private static StudentController instance;
 
+    private StudentFactory studentFactory;
+
     private StudentController(){
         instance = null;
+        studentFactory = StudentFactory.getInstance();
     }
 
     public static StudentController getInstance(){
@@ -94,7 +97,7 @@ public class StudentController {
                                     Date mmrVacc1, Date mmrVacc2,
                                     Date varicella1, Date varicella2, String teacher ) {
 
-        Student tmpstudent = new Student(id, dob, age, name, gpa,
+        Student tmpstudent = studentFactory.getObject(id, dob, age, name, gpa,
                 contactName, emergencyPhone, mmrVacc1, mmrVacc2,
                 varicella1,  varicella2,teacher);
         School.addStudent(tmpstudent);
@@ -131,7 +134,7 @@ public class StudentController {
                                  Date mmrVacc1, Date mmrVacc2,
                                  Date varicella1, Date varicella2,int index,String teacher ) {
 
-        Student tmpstudent = new Student(id, dob, age, name, gpa,
+        Student tmpstudent = studentFactory.getObject(id, dob, age, name, gpa,
                 contactName, emergencyPhone, mmrVacc1, mmrVacc2,
                 varicella1,  varicella2,teacher);
         School.students.set(index, tmpstudent);

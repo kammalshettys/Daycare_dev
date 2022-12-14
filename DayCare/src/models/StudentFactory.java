@@ -32,7 +32,7 @@ public class StudentFactory {
         return instance;
     }
     
-public static void deletObj(int index) {
+    public static void deletObj(int index) {
         
         School.students.remove(index);
 //        School.addStudent(tmpstudent);
@@ -42,6 +42,20 @@ public static void deletObj(int index) {
     public static void addStudentObject(String fileName, String studentData) {
         FileUtil fu =  new FileUtil();
         fu.fileStudentWriter(studentData, fileName);
+    }
+
+    public Student getObject(int ID, Date DOB, int age, String name, double gpa,
+                     String contactName, String emergencyPhone,
+                     Date MMRDoseOne, Date MMRDoseTwo, Date varicellaDoseOne,
+                     Date varicellaDoseTwo,
+                     String teacher){
+
+        return new Student(ID, DOB, age, name,  gpa,
+        contactName, emergencyPhone, MMRDoseOne, MMRDoseTwo, varicellaDoseOne
+                , varicellaDoseTwo, teacher);
+    }
+    public Student getObject(){
+        return new Student();
     }
 }
 
