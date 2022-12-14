@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package models;
 
 import java.util.Date;
 
@@ -12,51 +12,45 @@ import java.util.Date;
  * 
  */
 public class Student extends Person implements Comparable<Student>{
-    
-    private double gpa;
-    private String ageGroup;
+
+    private double GPA;
+    private AgeGroup ageGroup;
     private String teacherAssigned;
     
     public String getTeacherAssigned() {
         return teacherAssigned;
     }
 
-    public void setTeacherAssigned(String teacherAssigned) {
-        this.teacherAssigned = teacherAssigned;
+    public double getGPA() {
+        return GPA;
     }
 
-    public double getGpa() {
-        return gpa;
-    }
-
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
+    public void setGPA(double GPA) {
+        this.GPA = GPA;
     }
     
-    public String getAgeGroup(){
+    public AgeGroup getAgeGroup(){
         return this.ageGroup;
     }
     
-    public void setAgeGroup(String ageGroup){
+    public void setAgeGroup(AgeGroup ageGroup){
         this.ageGroup = ageGroup;
     }
     
     public Student(){
-    
+
     }
     
-    public Student(int id, Date dob, int age, String name, double gpa,
+    public Student(int ID, Date DOB, int age, String name, double gpa,
             String contactName, String emergencyPhone,
-            Date mmrVacc1, Date mmrVacc2, Date varicella1, Date varicella2, String teacher){
-        super(id, dob, age, name, contactName, emergencyPhone,
-                mmrVacc1, mmrVacc2, varicella1, varicella2);
-        this.gpa = gpa;
+            Date MMRDoseOne, Date MMRDoseTwo, Date varicellaDoseOne,
+                   Date varicellaDoseTwo,
+                   String teacher){
+        super(ID, DOB, age, name, contactName, emergencyPhone,
+                MMRDoseOne, MMRDoseTwo, varicellaDoseOne, varicellaDoseTwo);
+        this.GPA = gpa;
         this.setAgeGroup(this.getAgeGroupMapping());
         this.teacherAssigned = teacher;
-    }
-    
-    public ClassRoom getClassroom() {
-        return this.getClassroom();
     }
     
     @Override
@@ -64,41 +58,41 @@ public class Student extends Person implements Comparable<Student>{
         return getName();
     }
     
-    public String getAgeGroupMapping(){
+    public AgeGroup getAgeGroupMapping(){
         
         if (this.getAge() >= 6 && this.getAge() <= 12) {
-            return "6-12";
+            return AgeGroup._6To12;
         } else if (this.getAge() >= 13 && this.getAge() <= 24) {
-            return "13-24";
+            return AgeGroup._13To24;
         } else if (this.getAge() >= 25 && this.getAge() <= 35) {
-            return "25-35";
+            return AgeGroup._25To35;
         } else if (this.getAge() >= 36 && this.getAge() <= 47) {
-            return "36-47";
+            return AgeGroup._36To47;
         } else if (this.getAge() >= 48 && this.getAge() <= 59) {
-            return "48-59";
+            return AgeGroup._48To59;
         }
-        return "60-Above";
+        return AgeGroup._60Above;
     }
     
-    public static String getAgeGroupMapping(int age){
-        
+    public static AgeGroup getAgeGroupMapping(int age){
+
         if (age >= 6 && age <= 12) {
-            return "6-12";
+            return AgeGroup._6To12;
         } else if (age >= 13 && age <= 24) {
-            return "13-24";
+            return AgeGroup._13To24;
         } else if (age >= 25 && age <= 35) {
-            return "25-35";
+            return AgeGroup._25To35;
         } else if (age >= 36 && age <= 47) {
-            return "36-47";
+            return AgeGroup._36To47;
         } else if (age >= 48 && age <= 59) {
-            return "48-59";
+            return AgeGroup._48To59;
         }
-        return "60-Above";
+        return AgeGroup._60Above;
     }
 
 
     @Override
     public int compareTo(Student o) {
-        return Integer.compare(this.getId(), o.getId());
+        return Integer.compare(this.getID(), o.getID());
     }
 }

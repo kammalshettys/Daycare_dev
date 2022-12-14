@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package models;
 
-import static Classes.School.studentlist;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -54,8 +53,8 @@ public class Demo {
         
         System.out.println("*** Creating groups with teachers and students **** ");
         
-        List<Student> studentList = schoolInstance.getStudentlist();
-        List<Teacher> teacherList = schoolInstance.getTeacherlist();
+        List<Student> studentList = schoolInstance.getStudents();
+        List<Teacher> teacherList = schoolInstance.getTeachers();
         
         int getClassRooms = this.getNumberOfClassesToCreate(studentList, teacherList);
         System.out.println("*** Total Classrooms to Create : " + getClassRooms);
@@ -65,7 +64,7 @@ public class Demo {
         }
         System.out.println("*** Created New Classroom Successfully");
 //        this.createGroups(schoolInstance);
-        Map<String, Integer> studentDistribution = getAgeDistribution(schoolInstance.getStudentlist());
+        Map<String, Integer> studentDistribution = getAgeDistribution(schoolInstance.getStudents());
         Map<String, Integer> groupDistribution = this.getGroupsDistribution(studentDistribution);
         
         for (Map.Entry entry : groupDistribution.entrySet()) {
@@ -102,7 +101,7 @@ public class Demo {
         Map<String, List<Student>> studentsPerGroup = 
                 (studentList.stream().collect(groupingBy(Student::getAgeGroup, toList())));
         
-        List<Student> studentLit = schoolInstance.getStudentlist();
+        List<Student> studentLit = schoolInstance.getStudents();
         
         for(ClassRoom classRoomObj : classRoomList){
             for (Map.Entry entry : classRoomObj.teacherStudentGroup.entrySet()){

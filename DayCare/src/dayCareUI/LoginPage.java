@@ -5,14 +5,7 @@ package dayCareUI;
  */
 
 
-import Classes.Demo;
-import java.text.ParseException;
-import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import Classes.Teacher;
-import utility.FileUtil;
+import models.Demo;
 
 /**
  *
@@ -167,11 +160,7 @@ public class LoginPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginPage().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new LoginPage().setVisible(true));
         Demo demoObj = new Demo();
         demoObj.run();
     }

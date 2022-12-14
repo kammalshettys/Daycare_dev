@@ -5,10 +5,10 @@
  */
 package dayCareUI;
 
-import Classes.ClassRoom;
-import Classes.School;
-import Classes.Student;
-import Classes.Teacher;
+import models.ClassRoom;
+import models.School;
+import models.Student;
+import models.Teacher;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -35,8 +35,8 @@ public class PendingImmunitization extends javax.swing.JPanel {
         jComboClassRoom.setModel(new DefaultComboBoxModel(classList));
         
         Vector<String> teacherList = new Vector<>(); 
-        for (Teacher tk : this.instance.teacherlist){
-            teacherList.add(String.valueOf(tk.getId()));
+        for (Teacher tk : this.instance.teachers){
+            teacherList.add(String.valueOf(tk.getID()));
         }
         jComboTeacher.setModel(new DefaultComboBoxModel(teacherList));
 
@@ -47,20 +47,20 @@ public class PendingImmunitization extends javax.swing.JPanel {
         dtm.setRowCount(0);
         for(Student pk : stdList){
             String varicella1Status = "Done";
-            if(pk.getVaricella1stDose() == null){
+            if(pk.getVaricellaDoseOne() == null){
                 varicella1Status = "Pending";
             }
             String varicella2Status = "Done";
-            if(pk.getVaricella2ndDose() == null){
+            if(pk.getVaricellaDoseTwo() == null){
                 varicella2Status = "Pending";
             }
             String mmrVaccine1Status = "Done";
-            if(pk.getMmrVaccine1stDose()== null){
+            if(pk.getMMRDoseOne()== null){
                 mmrVaccine1Status = "Pending";
             }
             
             String mmrVaccine2Status = "Done";
-            if(pk.getMmrVaccine2ndDose()== null){
+            if(pk.getMMRDoseTwo()== null){
                 mmrVaccine2Status = "Pending";
             }
             if(varicella1Status == "Pending" || varicella2Status == "Pending" ||
@@ -68,7 +68,7 @@ public class PendingImmunitization extends javax.swing.JPanel {
                 
                 Object [] row = new Object[6];
                 row[0] = pk;
-                row[1] = pk.getId();
+                row[1] = pk.getID();
                 row[2] = mmrVaccine1Status;
                 row[3] = mmrVaccine2Status;
                 row[4] = varicella1Status;
@@ -177,14 +177,14 @@ public class PendingImmunitization extends javax.swing.JPanel {
     private void jbtnVaccineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnVaccineActionPerformed
         // TODO add your handling code here:
         List<ClassRoom> classroomList = this.instance.getClassRooms();
-        List<Teacher> teacherList = this.instance.getTeacherlist();
+        List<Teacher> teacherList = this.instance.getTeachers();
         System.out.println("Inside Button Click");
         for(ClassRoom cl : classroomList){
             if(cl.getName().equals(jComboClassRoom.getSelectedItem().toString())){
                 System.out.println("Inside Match of classname");
                 String teacherId = jComboTeacher.getSelectedItem().toString();
                 for(Teacher tk : teacherList){
-                    if(tk.getId() == Integer.parseInt(teacherId)){
+                    if(tk.getID() == Integer.parseInt(teacherId)){
                         this.populateTable(cl.teacherStudentGroup.get(tk));
                     }
                 }

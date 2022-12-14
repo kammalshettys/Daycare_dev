@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package models;
 
 import java.util.Date;
 
@@ -13,69 +13,39 @@ import java.util.Date;
  */
 public class Teacher extends Person implements Comparable<Teacher>{
     
-    private int credits;
-    private int salary;
+    private final int credits;
+    private final int salary;
     private String annualReview;
-    private String ageGroupAssigned;
+    private AgeGroup ageGroupAssigned;
     private int studentCount=0;
-//    private int maxAge;
-//    private int minAge;
-//
-//    public void setMaxAge(int maxAge){
-//        this.maxAge = maxAge;
-//    }
-//    public void setMinAge(int minAge){
-//        this.minAge = minAge;
-//    }
-//    
-//    public int getMaxAge(){
-//        return this.maxAge;
-//    }
-//    
-//    public int getMinAge(){
-//        return this.minAge;
-//    }
+
     public int getStudentCount() {
         return studentCount;
     }
-
     public void setStudentCount(int count) {
         this.studentCount = count;
     }
-    
-    public String getAgeGroupAssigned() {
+    public AgeGroup getAgeGroupAssigned() {
         return ageGroupAssigned;
     }
-
-    public void setAgeGroupAssigned(String ageGroupAssigned) {
+    public void setAgeGroupAssigned(AgeGroup ageGroupAssigned) {
         this.ageGroupAssigned = ageGroupAssigned;
     }
-
     public String getAnnualReview() {
         return annualReview;
     }
-
     public void setAnnualReview(String annualReview) {
         this.annualReview = annualReview;
     }
-    
     public int getCredits() {
         return credits;
     }
-
-    public void setCredits(int credits) {
-        this.credits = credits;
-    } 
-    
     public int getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-    
-    public Teacher(int id, Date dob, int age, String name, int credits, int salary, String ageGroup){
+    public Teacher(int id, Date dob, int age, String name, int credits,
+                   int salary, AgeGroup ageGroup){
         super(id, dob, age, name);
         this.credits = credits;
         this.salary = salary;
@@ -89,6 +59,6 @@ public class Teacher extends Person implements Comparable<Teacher>{
 
     @Override
     public int compareTo(Teacher o) {
-        return Integer.compare(this.getId(), o.getId());
+        return Integer.compare(this.getID(), o.getID());
     }
 }

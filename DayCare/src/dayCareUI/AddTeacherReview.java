@@ -5,9 +5,9 @@
  */
 package dayCareUI;
 
-import Classes.School;
-import Classes.Teacher;
-import java.util.ArrayList;
+import models.School;
+import models.Teacher;
+
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -27,8 +27,8 @@ public class AddTeacherReview extends javax.swing.JPanel {
         initComponents();
         instance = School.getInstance();
         Vector<String> teachList = new Vector<>(); 
-        for (Teacher tk : instance.teacherlist){
-            teachList.add(String.valueOf(tk.getId()));
+        for (Teacher tk : instance.teachers){
+            teachList.add(String.valueOf(tk.getID()));
         }
         comboBoxTeacher.setModel(new DefaultComboBoxModel(teachList));
     }
@@ -123,16 +123,16 @@ public class AddTeacherReview extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String selectedTeacherId = comboBoxTeacher.getSelectedItem().toString();
-        List<Teacher> tempList = instance.teacherlist;
+        List<Teacher> tempList = instance.teachers;
         for(Teacher tk : tempList){
-            System.out.println(tk.getId());
+            System.out.println(tk.getID());
             System.out.println(selectedTeacherId);
-            System.out.println(tk.getId() == Integer.parseInt(selectedTeacherId));
-            if(tk.getId() == Integer.parseInt(selectedTeacherId)){
+            System.out.println(tk.getID() == Integer.parseInt(selectedTeacherId));
+            if(tk.getID() == Integer.parseInt(selectedTeacherId)){
                 tk.setAnnualReview(txtReview.getText());
             }
         }
-        instance.teacherlist = tempList;
+        instance.teachers = tempList;
         JOptionPane.showMessageDialog(this, "Review saved successfully");
         txtReview.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed

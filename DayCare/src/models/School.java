@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package models;
 
 /**
  *
@@ -13,59 +13,57 @@ package Classes;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Vector;
+
 
 public class School {
     public static List<ClassRoom> classrooms;
-    public static List<Student> studentlist;
-    public static List<Teacher> teacherlist;
+    public static List<Student> students;
+    public static List<Teacher> teachers;
 
     private static final School instance = new School();
     private School (){
         classrooms = new ArrayList<>();
-        teacherlist = new ArrayList<>();
-        studentlist = new ArrayList<>();
+        teachers = new ArrayList<>();
+        students = new ArrayList<>();
     }
     public static School getInstance( ) {
         return instance;
     }
 
-    public void printClassRoominformation( ) {
-//        for (ClassRoom C: classrooms) {
-//            System.out.print(C.getTeacher().getName());
-//        }
+    public static void addStudent(Student person){
+        students.add(person);
     }
-
-    public static void addStudent(Student person){studentlist.add(person);}
-    public static void addTeacher(Teacher person){teacherlist.add(person);}
+    public static void addTeacher(Teacher person){
+        teachers.add(person);
+    }
     public static void addClassRoom(ClassRoom classroom){classrooms.add(classroom);}
 
     public static List<ClassRoom> getClassRooms() {return getClassRooms(null);}
-    public static List<Student> getStudentlist() {return getStudentlist(null);}
-    public static List<Teacher> getTeacherlist() {return getTeacherlist(null);}
+    public static List<Student> getStudents() {return getStudentlist(null);}
+    public static List<Teacher> getTeachers() {return getTeacherlist(null);}
 
     public static List<ClassRoom> getClassRooms(Comparator<ClassRoom> c) {
         classrooms.sort(c);
         return classrooms;
     }
     public static List<Student> getStudentlist(Comparator<Student> c) {
-        studentlist.sort(c);
-        return studentlist;
+        students.sort(c);
+        return students;
     }
     public static List<Teacher> getTeacherlist(Comparator<Teacher> c) {
-        teacherlist.sort(c);
-        return teacherlist;
+        teachers.sort(c);
+        return teachers;
     }
 
     public static void viewStudentInformation(){
         System.out.println("****** Viewing Student list ******");
-        studentlist.stream().forEach(System.out::println);
+        students.forEach(System.out::println);
         System.out.println();
     }
     
     public static void viewTeacherInformation(){
         System.out.println("****** Viewing Teacher list ******");
-        teacherlist.stream().forEach(System.out::println);
+        teachers.forEach(System.out::println);
         System.out.println();
     }
     

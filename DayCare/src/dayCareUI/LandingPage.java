@@ -5,11 +5,9 @@
  */
 package dayCareUI;
 
-import Classes.Demo;
-import Classes.School;
-import Classes.Student;
-import Classes.StudentFactory;
-import Classes.Teacher;
+import models.School;
+import models.Student;
+import models.Teacher;
 import java.awt.Container;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.JFrame;
-import javax.swing.JSplitPane;
+
 import utility.FileUtil;
 
 /**
@@ -193,9 +191,9 @@ public class LandingPage extends javax.swing.JFrame {
         List<String> teacherData = new ArrayList<String>();
         SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
 
-        for (Teacher tk : instance.teacherlist) {
+        for (Teacher tk : instance.teachers) {
 //            System.out.println(mdyFormat.format(tk.getDateOfBirth()));
-            teacherData.add("" + tk.getId() + "," + mdyFormat.format(tk.getDateOfBirth()) + "," + tk.getAge() + "," + tk.getName() + "," + tk.getCredits() + "," + tk.getSalary() + "," + tk.getAgeGroupAssigned());
+            teacherData.add("" + tk.getID() + "," + mdyFormat.format(tk.getDOB()) + "," + tk.getAge() + "," + tk.getName() + "," + tk.getCredits() + "," + tk.getSalary() + "," + tk.getAgeGroupAssigned());
         }
         String[] teacherDataArr = new String[teacherData.size()];
         teacherData.toArray(teacherDataArr);
@@ -205,37 +203,37 @@ public class LandingPage extends javax.swing.JFrame {
         Path relativePathToDumpFile = Paths.get("", "src", "Resources", "Students.csv");
         String studentCsvFile = relativePathToDumpFile.toAbsolutePath().toString();
         List<String> studentData = new ArrayList<String>();
-        for (Student student : instance.studentlist) {
+        for (Student student : instance.students) {
             String mmr1stDose = "";
             try{
-                mmr1stDose = mdyFormat.format(student.getMmrVaccine1stDose());
+                mmr1stDose = mdyFormat.format(student.getMMRDoseOne());
             }catch(Exception e){
                 
             }
             
             String mmr2ndDose = "";
             try{
-                mmr2ndDose = mdyFormat.format(student.getMmrVaccine2ndDose());
+                mmr2ndDose = mdyFormat.format(student.getMMRDoseTwo());
             }catch(Exception e){
                 
             }
             
             String varicella1stDose = "";
             try{
-                varicella1stDose = mdyFormat.format(student.getVaricella1stDose());
+                varicella1stDose = mdyFormat.format(student.getVaricellaDoseOne());
             }catch(Exception e){
                 
             }
             
             String varicella2ndDose = "";
             try{
-                varicella2ndDose = mdyFormat.format(student.getVaricella2ndDose());
+                varicella2ndDose = mdyFormat.format(student.getVaricellaDoseTwo());
             }catch(Exception e){
                 
             }
             
 
-            studentData.add("" + student.getId() + "," + mdyFormat.format(student.getDateOfBirth()) + "," + student.getAge()+ "," + student.getName() + "," + student.getGpa()+ "," + student.getEmergencyName()+ "," + student.getEmergencyPhone()+ "," + mmr1stDose + "," + mmr2ndDose + "," + varicella1stDose + "," + varicella2ndDose);
+            studentData.add("" + student.getID() + "," + mdyFormat.format(student.getDOB()) + "," + student.getAge()+ "," + student.getName() + "," + student.getGPA()+ "," + student.getEmergencyName()+ "," + student.getEmergencyPhone()+ "," + mmr1stDose + "," + mmr2ndDose + "," + varicella1stDose + "," + varicella2ndDose);
         }
         String[] studentDataArr = new String[studentData.size()];
         studentData.toArray(studentDataArr);

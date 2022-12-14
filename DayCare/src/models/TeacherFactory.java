@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package models;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -76,7 +76,7 @@ public class TeacherFactory {
     public static List<String> getAgeGroup(){
         List<String> ageGroup = new ArrayList<String>();
        for(Map.Entry<String,Integer>entry: Demo.studentRatioRules.entrySet()){
-           long teacherCount = School.getTeacherlist().stream().filter(t -> entry.getKey().equals(t.getAgeGroupAssigned())).count();
+           long teacherCount = School.getTeachers().stream().filter(t -> entry.getKey().equals(t.getAgeGroupAssigned())).count();
            if((entry.getKey().equals("48-59")||entry.getKey().equals("60-Above"))&&teacherCount<2)
                 ageGroup.add(entry.getKey());
            else if(teacherCount<3)

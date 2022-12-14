@@ -5,10 +5,9 @@
  */
 package dayCareUI;
 
-import Classes.Person;
-import Classes.School;
-import Classes.Student;
-import Classes.StudentFactory;
+import models.School;
+import models.Student;
+import models.StudentFactory;
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,13 +38,13 @@ public class ViewStudent1 extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblStudent.getModel();
         dtm.setRowCount(0);
-        for(Student pk : this.instance.studentlist){
+        for(Student pk : this.instance.students){
             Object [] row = new Object[5];
             row[0] = pk;
-            row[1] = pk.getId();
+            row[1] = pk.getID();
             row[2] = pk.getAge();
-            row[3] = String.valueOf(pk.getDateOfBirth());
-            row[4] = pk.getGpa();
+            row[3] = String.valueOf(pk.getDOB());
+            row[4] = pk.getGPA();
             dtm.addRow(row);
         }
     }
@@ -313,11 +312,11 @@ public class ViewStudent1 extends javax.swing.JPanel {
 
     private void updateStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStudentActionPerformed
        System.out.print(tblStudent.getSelectedRow());
-       System.out.print(School.studentlist.get(tblStudent.getSelectedRow()));
-       Student std = School.studentlist.get(tblStudent.getSelectedRow());
+       System.out.print(School.students.get(tblStudent.getSelectedRow()));
+       Student std = School.students.get(tblStudent.getSelectedRow());
        if(std!=null){
            txtName.setText(std.getName());
-           jTFID.setText(String.valueOf(std.getId()));
+           jTFID.setText(String.valueOf(std.getID()));
            
        }
 // TODO add your handling code here:
@@ -398,7 +397,7 @@ public class ViewStudent1 extends javax.swing.JPanel {
             */
             Student studentObj = StudentFactory.getObj(studentId, dob, 
                     studentAge, stundentName, stundentGpa, contactName, contactPhone,
-                    null, null, null, null,tblStudent.getSelectedRow(), School.studentlist.get(tblStudent.getSelectedRow()).getTeacherAssigned()
+                    null, null, null, null,tblStudent.getSelectedRow(), School.students.get(tblStudent.getSelectedRow()).getTeacherAssigned()
                     );
             JOptionPane.showMessageDialog(this, "Added Stundet Details Successfully");
             JTextField[] jk = new JTextField[] {txtName, txtContactName, txtGPA, txtGPA,

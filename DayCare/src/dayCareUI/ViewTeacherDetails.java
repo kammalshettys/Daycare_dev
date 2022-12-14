@@ -5,9 +5,8 @@
  */
 package dayCareUI;
 
-import Classes.School;
-import Classes.Student;
-import Classes.Teacher;
+import models.School;
+import models.Teacher;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,11 +28,11 @@ public class ViewTeacherDetails extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblTeacher.getModel();
         dtm.setRowCount(0);
-        for(Teacher pk : this.instance.teacherlist){
+        for(Teacher pk : this.instance.teachers){
             Object [] row = new Object[4];
             row[0] = pk;
             row[1] = pk.getSalary();
-            row[2] = String.valueOf(pk.getDateOfBirth());
+            row[2] = String.valueOf(pk.getDOB());
             row[3] = pk.getAnnualReview();
             dtm.addRow(row);
         }

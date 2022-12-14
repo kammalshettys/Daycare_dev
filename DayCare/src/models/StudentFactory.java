@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package models;
 
 /**
  *
@@ -12,12 +12,9 @@ package Classes;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 import utility.FileUtil;
 
@@ -51,7 +48,7 @@ public class StudentFactory {
      // List<Teacher> teachList =  School.teacherlist;
     //  List<Teacher> teachList = School.teacherlist.stream().filter(e->e.getName().equalsIgnoreCase(student.getTeacherAssigned())).collect(Collectors.toList());
  //   System.out.println()  
-    Optional<Teacher> t = School.teacherlist.stream().filter(e->e.getName().equalsIgnoreCase(student.getTeacherAssigned())).findFirst();
+    Optional<Teacher> t = School.teachers.stream().filter(e->e.getName().equalsIgnoreCase(student.getTeacherAssigned())).findFirst();
       Teacher teacher = t.get();
       teacher.setStudentCount(teacher.getStudentCount()+1);
       Optional<ClassRoom> cl = School.classrooms.stream().filter(e->e.teacherStudentGroup.containsKey(teacher)).findAny();
@@ -80,7 +77,7 @@ public class StudentFactory {
         Student tmpstudent = new Student(id, dob, age, name, gpa,
                       contactName, emergencyPhone, mmrVacc1, mmrVacc2,
                       varicella1,  varicella2,teacher);
-        School.studentlist.set(index, tmpstudent);
+        School.students.set(index, tmpstudent);
 //        School.addStudent(tmpstudent);
         return tmpstudent;
     }
@@ -88,13 +85,13 @@ public class StudentFactory {
     
 public static void deletObj(int index) {
         
-        School.studentlist.remove(index);
+        School.students.remove(index);
 //        School.addStudent(tmpstudent);
        
     }
 
 public static List<String> teachList(int age){
-    List<String> teacherList = School.teacherlist.stream()
+    List<String> teacherList = School.teachers.stream()
             .filter(e-> (e.getAgeGroupAssigned().equalsIgnoreCase(Student.getAgeGroupMapping(age)))&&Demo.studentRatioRules.get(Student.getAgeGroupMapping(age))>e.getStudentCount())
             .map(e->{return e.getName();}).collect(Collectors.toList());
     System.out.println(teacherList);

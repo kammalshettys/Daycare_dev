@@ -5,9 +5,9 @@
  */
 package dayCareUI;
 
-import Classes.School;
-import Classes.Student;
-import Classes.Teacher;
+import models.School;
+import models.Student;
+
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,8 +34,8 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
         initComponents();
         instance = School.getInstance();
         Vector<String> studentList = new Vector<>(); 
-        for (Student tk : instance.studentlist){
-            studentList.add(String.valueOf(tk.getId()));
+        for (Student tk : instance.students){
+            studentList.add(String.valueOf(tk.getID()));
         }
         studentComboBox.setModel(new DefaultComboBoxModel(studentList));
     }
@@ -173,9 +173,9 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
         boolean validateVaccineInfo = validateMmrVaccine1 && validateMmrVaccine2 && validatevaricella1 && validatevaricella2 ;
         
         if(validateVaccineInfo){
-            List<Student> studentInfo = instance.getStudentlist();
+            List<Student> studentInfo = instance.getStudents();
             for(Student pk : studentInfo){
-                if(pk.getId() == selectedStudentId){
+                if(pk.getID() == selectedStudentId){
                     String mmrVacc1 = txtMMR1.getText();
                     String mmrVacc2 = txtMMR2.getText();
                     String varicella1 = Vvaccine1.getText();
@@ -208,10 +208,10 @@ public class UpdateVaccineInfo extends javax.swing.JPanel {
                     } catch (Exception e) {
                         System.err.println("Exception ocurred : " + e);
                     }
-                    pk.setMmrVaccine1stDose(mmrVaccine1);
-                    pk.setMmrVaccine2ndDose(mmrVaccine2);
-                    pk.setVaricella1stDose(varicellaDate1);
-                    pk.setVaricella2ndDose(varicellaDate2);
+                    pk.setMMRDoseOne(mmrVaccine1);
+                    pk.setMMRDoseTwo(mmrVaccine2);
+                    pk.setVaricellaDoseOne(varicellaDate1);
+                    pk.setVaricellaDoseTwo(varicellaDate2);
                     break;
                 }
             }

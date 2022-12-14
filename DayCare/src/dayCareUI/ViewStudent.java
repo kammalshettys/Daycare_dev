@@ -5,9 +5,8 @@
  */
 package dayCareUI;
 
-import Classes.Person;
-import Classes.School;
-import Classes.Student;
+import models.School;
+import models.Student;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,13 +29,13 @@ public class ViewStudent extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblStudent.getModel();
         dtm.setRowCount(0);
-        for(Student pk : this.instance.studentlist){
+        for(Student pk : this.instance.students){
             Object [] row = new Object[5];
             row[0] = pk;
-            row[1] = pk.getId();
+            row[1] = pk.getID();
             row[2] = pk.getAge();
-            row[3] = String.valueOf(pk.getDateOfBirth());
-            row[4] = pk.getGpa();
+            row[3] = String.valueOf(pk.getDOB());
+            row[4] = pk.getGPA();
             dtm.addRow(row);
         }
     }
@@ -45,14 +44,14 @@ public class ViewStudent extends javax.swing.JPanel {
     public void populateVaccineTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblVaccineInfo.getModel();
         dtm.setRowCount(0);
-        for(Student pk : this.instance.studentlist){
+        for(Student pk : this.instance.students){
             Object [] row = new Object[6];
             row[0] = pk;
-            row[1] = pk.getId();
-            row[2] = pk.getMmrVaccine1stDose();
-            row[3] = pk.getMmrVaccine2ndDose();
-            row[4] = pk.getVaricella1stDose();
-            row[5] = pk.getVaricella2ndDose();
+            row[1] = pk.getID();
+            row[2] = pk.getMMRDoseOne();
+            row[3] = pk.getMMRDoseTwo();
+            row[4] = pk.getVaricellaDoseOne();
+            row[5] = pk.getVaricellaDoseTwo();
             dtm.addRow(row);
         }
     }

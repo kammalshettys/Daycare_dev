@@ -5,9 +5,9 @@
  */
 package dayCareUI;
 
-import Classes.Student;
-import Classes.StudentFactory;
-import Classes.TeacherFactory;
+import models.Student;
+import models.StudentFactory;
+
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import java.util.Date;

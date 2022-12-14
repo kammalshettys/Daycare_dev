@@ -5,9 +5,9 @@
  */
 package dayCareUI;
 
-import static Classes.Demo.studentRatioRules;
-import Classes.School;
-import Classes.Student;
+import static models.Demo.studentRatioRules;
+import models.School;
+import models.Student;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class SummaryPage extends JPanel {
     public SummaryPage() {
         initComponents();
         instance = School.getInstance();
-        Map<String, Integer> studentDistribution = this.getAgeDistribution(instance.getStudentlist());
+        Map<String, Integer> studentDistribution = this.getAgeDistribution(instance.getStudents());
         Map<String, Integer> groupDistribution = this.getGroupsDistribution(studentDistribution);
         this.populateTable(groupDistribution);
     }
